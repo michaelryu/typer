@@ -25,13 +25,12 @@
   <span ng-repeat="word in main.words | limitTo: 15 track by $index">
     {{word}}
   </span>
-  <!--{{main.words[main.i]}}-->
 </div>
 <input ng-model="main.type" type="text" ui-keyup="{32: 'main.nextWord($event)'}"/>
 
-<h1>{{main.type}}</h1>
 
-<div>counter: {{main.counter}}</div>
+<div>streak: {{main.streak}}</div>
 <div>correct: {{main.correct}}</div>
+<div>percentage: {{(main.correct/main.counter).toFixed(2)}}</div>
 </body>
 </html>
