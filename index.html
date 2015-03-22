@@ -28,9 +28,9 @@
 </div>
 <input ng-model="main.type" type="text" ui-keyup="{32: 'main.nextWord($event)'}"/>
 
-
+<div>counter: {{main.counter}}</div>
 <div>streak: {{main.streak}}</div>
 <div>correct: {{main.correct}}</div>
-<div>percentage: {{(main.correct/main.counter).toFixed(2)}}</div>
+<div>percentage: {{(100 * main.correct/main.counter).toFixed(2)+"%"}}</div>
 </body>
 </html>
