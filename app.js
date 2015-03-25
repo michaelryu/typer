@@ -6,7 +6,7 @@ angular.module("App", ["ui.utils"])
     main.correct = 0;
     main.streak = 0;
     main.highest = 0;
-    main.countDown = 10;
+    main.countDown = 60;
     main.started = false;
     main.status = false;
 
@@ -18,6 +18,7 @@ angular.module("App", ["ui.utils"])
       main.countDown = 10;
       main.type = "";
       main.status = false;
+      main.started = false;
     }
 
     main.start = function ($event) {

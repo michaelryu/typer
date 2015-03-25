@@ -1,3 +1,36 @@
+
 .finished {
     display: none;
+}
+
+.box {
+    width: 450px;
+    margin-top: 200px;
+    margin: 200px auto 0 auto;
+    padding: 40px 40px 70px 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+.array {
+}
+
+span {
+    font-size: 1.6em;
+}
+
+button {
+    float: right;
+}
+
+.body {
+    background-color: lightgray;
+}
+
+.stats {
+    margin-top: 30px;
 }
