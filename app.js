@@ -6,10 +6,32 @@ angular.module("App", ["ui.utils"])
     main.correct = 0;
     main.streak = 0;
     main.highest = 0;
-    main.countDown = 100;
+    main.countDown = 10;
+    main.started = false;
+    main.status = false;
+
+    main.reset = function () {
+      main.counter = 0;
+      main.correct = 0;
+      main.streak = 0;
+      main.highest = 0;
+      main.countDown = 10;
+      main.type = "";
+      main.status = false;
+    }
+
+    main.start = function ($event) {
+      main.started = true;
+    }
 
     $interval(function () {
-      console.log(main.countDown--);
+      if (main.started && main.countDown > 0) {
+        main.countDown--;
+      }
+      if (main.countDown === 0) {
+        main.status = true;
+        main.started = false;
+      }
     }, 1000, 0)
 
     function shuffleArray(array) {
@@ -25,19 +47,21 @@ angular.module("App", ["ui.utils"])
     main.i = 0;
     main.words = shuffleArray(words);
     main.nextWord = function ($event) {
-      main.counter++;
-      if (main.type === main.words[0]) {
-        main.correct++;
-        main.streak++;
-        if (main.streak > main.highest) {
-          main.highest = main.streak;
+      if (!main.status) {
+        main.counter++;
+        if (main.type === main.words[0]) {
+          main.correct++;
+          main.streak++;
+          if (main.streak > main.highest) {
+            main.highest = main.streak;
+          }
+        } else {
+          main.streak = 0;
         }
-      } else {
-        main.streak = 0;
+        main.words.push(main.words[0]);
+        main.words.splice(0, 1);
+        main.type = "";
       }
-      main.words.push(main.words[0]);
-      main.words.splice(0, 1);
-      main.type = "";
     }
   })
 ;

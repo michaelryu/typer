@@ -26,11 +26,15 @@
     {{word}}
   </span>
 </div>
-<input ng-model="main.type" type="text" ui-keyup="{32: 'main.nextWord($event)'}"/>
+<input ng-model="main.type" type="text" ui-keydown="{32: 'main.nextWord($event)'}"
+       ng-keypress="main.started=true" ng-class="{'finished': main.status}"/>
 
 <div>counter: {{main.counter}}</div>
 <div>streak: {{main.streak}}</div>
+<div>highest: {{main.highest}}</div>
 <div>correct: {{main.correct}}</div>
 <div>percentage: {{(100 * main.correct/main.counter).toFixed(2)+"%"}}</div>
+<div>time: {{main.countDown}}</div>
+<button ng-click="main.reset()">reset</button>
 </body>
 </html>
